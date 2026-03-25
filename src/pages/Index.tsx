@@ -1,16 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from 'react-helmet-async';
+import Layout from '@/components/layout/Layout';
+import HeroSection from '@/components/home/HeroSection';
+import IntroSection from '@/components/home/IntroSection';
+import ServiceGrid from '@/components/home/ServiceGrid';
+import WhyUsSection from '@/components/home/WhyUsSection';
+import ProcessSection from '@/components/home/ProcessSection';
+import ProjectsTeaser from '@/components/home/ProjectsTeaser';
+import CTASection from '@/components/home/CTASection';
+import { useLanguage } from '@/i18n/LanguageContext';
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const { locale } = useLanguage();
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <Layout>
+      <Helmet>
+        <title>{locale === 'de' ? 'Glaserei Schubert Leipzig | Fenster, Türen & Glasfassaden' : 'Glaserei Schubert Leipzig | Windows, Doors & Glass Facades'}</title>
+        <meta name="description" content={locale === 'de'
+          ? 'Glaserei Schubert – Ihr Fachbetrieb in Leipzig für Fenster, Türen, Glasfassaden, Ganzglasanlagen, Spiegel und Reparaturverglasung. Beratung, Fertigung und Montage.'
+          : 'Glaserei Schubert – Your specialist in Leipzig for windows, doors, glass facades, all-glass systems, mirrors and repair glazing.'
+        } />
+        <html lang={locale} />
+      </Helmet>
+      <HeroSection />
+      <IntroSection />
+      <ServiceGrid />
+      <WhyUsSection />
+      <ProcessSection />
+      <ProjectsTeaser />
+      <CTASection />
+    </Layout>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
