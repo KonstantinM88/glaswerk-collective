@@ -38,12 +38,36 @@ const References = () => {
         } />
       </Helmet>
 
-      <section className="py-24 lg:py-32 bg-muted">
-        <div className="container mx-auto px-4 lg:px-8">
-          <AnimatedSection className="text-center">
-            <span className="text-accent text-sm font-semibold uppercase tracking-wider">{t.references.label}</span>
-            <h1 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mt-2 mb-4">{t.references.title}</h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t.references.subtitle}</p>
+      <section className="relative overflow-hidden py-24 lg:py-32">
+        <div className="absolute inset-0">
+          <picture>
+            <source media="(min-width: 768px)" srcSet="/Pictures/glass_city_1600.webp" />
+            <img
+              src="/Pictures/glass_city_800.webp"
+              alt=""
+              aria-hidden="true"
+              width={1600}
+              height={900}
+              className="h-full w-full object-cover brightness-95 contrast-125 saturate-150"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-foreground/18" />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/8 via-foreground/18 to-foreground/42" />
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+          <AnimatedSection className="mx-auto max-w-4xl text-center">
+            <div className="rounded-[28px] border border-white/28 bg-white/14 px-5 py-8 shadow-[0_22px_70px_rgba(15,23,42,0.18)] backdrop-blur-lg sm:px-8 lg:px-12">
+              <span className="text-slate-800 text-sm font-bold uppercase tracking-[0.24em]">
+                {t.references.label}
+              </span>
+              <h1 className="font-heading text-3xl lg:text-5xl font-bold text-slate-950 mt-3 mb-5 mx-auto [text-shadow:0_1px_0_rgba(255,255,255,0.35)]">
+                {t.references.title}
+              </h1>
+              <p className="text-slate-900/90 text-lg font-medium max-w-2xl mx-auto">
+                {t.references.subtitle}
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
 
   const serviceLinks = t.services.items.slice(0, 6).map(item => ({
     to: `/leistungen/${item.slug}`,
@@ -91,7 +92,9 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-primary-foreground/50">{t.footer.rights}</p>
+          <p className="text-xs text-primary-foreground/50">
+            {`© ${currentYear} ${t.footer.company}. ${t.footer.rights}`}
+          </p>
           <div className="flex items-center gap-4 text-xs text-primary-foreground/50">
             <Link to="/datenschutz" className="hover:text-primary-foreground/70 transition-colors">{t.footer.privacy}</Link>
             <Link to="/impressum" className="hover:text-primary-foreground/70 transition-colors">{t.footer.imprint}</Link>

@@ -13,6 +13,9 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import References from "./pages/References";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Imprint from "./pages/Imprint";
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +27,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/ueber-uns" element={<About />} />
@@ -32,6 +36,8 @@ const App = () => (
               <Route path="/kontakt" element={<Contact />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/referenzen" element={<References />} />
+              <Route path="/datenschutz" element={<Privacy />} />
+              <Route path="/impressum" element={<Imprint />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
